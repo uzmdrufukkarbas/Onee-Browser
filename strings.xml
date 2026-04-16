@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Onee Browser</string>
+    <string name="address_hint">Onee Browser</string>
+    <string name="btn_back">Geri</string>
+    <string name="btn_refresh">Yenile</string>
+    <string name="btn_menu">Menü</string>
+</resources>
