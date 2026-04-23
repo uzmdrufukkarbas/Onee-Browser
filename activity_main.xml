@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
@@ -9,115 +8,151 @@
     android:background="@color/bg_primary"
     tools:context=".MainActivity">
 
-    <!-- ─────────────── ÜST BAR ─────────────── -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/topBar"
+    <!-- Üst Çubuk -->
+    <LinearLayout
+        android:id="@+id/headerContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/bg_toolbar"
-        android:paddingTop="4dp"
-        android:paddingBottom="6dp"
-        android:paddingStart="10dp"
-        android:paddingEnd="6dp"
+        android:orientation="vertical"
+        android:elevation="4dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Geri Butonu -->
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="38dp"
-            android:layout_height="38dp"
-            android:background="@drawable/btn_icon_bg"
-            android:src="@drawable/ic_arrow_back"
-            android:contentDescription="Geri"
-            android:alpha="0.35"
-            android:scaleType="center"
-            android:padding="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
-        <!-- Adres Çubuğu -->
-        <EditText
-            android:id="@+id/etAddressBar"
-            android:layout_width="0dp"
-            android:layout_height="38dp"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="4dp"
-            android:background="@drawable/address_bar_bg"
-            android:hint="@string/address_hint"
-            android:hintTextColor="@color/text_hint"
-            android:textColor="@color/text_primary"
-            android:textSize="13sp"
-            android:paddingStart="14dp"
-            android:paddingEnd="14dp"
-            android:inputType="textUri"
-            android:imeOptions="actionGo"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:ellipsize="end"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="4dp"
             android:gravity="center_vertical"
-            app:layout_constraintStart_toEndOf="@id/btnBack"
-            app:layout_constraintEnd_toStartOf="@id/btnRefresh"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:text="google.com" />
+            android:orientation="horizontal">
 
-        <!-- Yenile / Durdur Butonu -->
-        <ImageButton
-            android:id="@+id/btnRefresh"
-            android:layout_width="38dp"
-            android:layout_height="38dp"
-            android:background="@drawable/btn_icon_bg"
-            android:src="@drawable/ic_refresh"
-            android:contentDescription="Yenile"
-            android:scaleType="center"
-            android:padding="8dp"
-            app:layout_constraintEnd_toStartOf="@id/btnMenu"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            <ImageButton
+                android:id="@+id/btnHome"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/btn_icon_bg"
+                android:contentDescription="@string/ANASAYFA"
+                android:padding="4dp"
+                android:scaleType="center"
+                android:src="@drawable/ic_home"
+                tools:ignore="TouchTargetSizeCheck" />
 
-        <!-- Menü Butonu -->
-        <ImageButton
-            android:id="@+id/btnMenu"
-            android:layout_width="38dp"
-            android:layout_height="38dp"
-            android:background="@drawable/btn_icon_bg"
-            android:src="@drawable/ic_more_vert"
-            android:contentDescription="Menü"
-            android:scaleType="center"
-            android:padding="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            <AutoCompleteTextView
+                android:id="@+id/etAddressBar"
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/address_bar_bg"
+                android:completionThreshold="1"
+                android:dropDownHeight="200dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:hint="@string/address_hint"
+                android:imeOptions="actionGo"
+                android:inputType="textUri"
+                android:maxLines="1"
+                android:paddingStart="12dp"
+                android:paddingEnd="8dp"
+                android:popupBackground="#2A2A2F"
+                android:singleLine="true"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_hint"
+                android:textSize="12sp"
+                tools:ignore="TouchTargetSizeCheck" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageButton
+                android:id="@+id/btnRefresh"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="2dp"
+                android:background="@drawable/btn_icon_bg"
+                android:contentDescription="@string/YENİLE"
+                android:padding="4dp"
+                android:scaleType="center"
+                android:src="@drawable/ic_refresh"
+                tools:ignore="TouchTargetSizeCheck" />
 
-    <!-- ─────────────── PROGRESS BAR ─────────────── -->
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:max="100"
-        android:progress="0"
-        android:visibility="gone"
-        android:progressDrawable="@drawable/progress_drawable"
-        android:indeterminate="false"
-        app:layout_constraintTop_toBottomOf="@id/topBar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+            <ImageButton
+                android:id="@+id/btnNewTab"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="2dp"
+                android:background="@drawable/btn_icon_bg"
+                android:contentDescription="@string/Yenı_sekme"
+                android:padding="4dp"
+                android:scaleType="center"
+                android:src="@drawable/ic_add"
+                tools:ignore="TouchTargetSizeCheck" />
 
-    <!-- ─────────────── WEB VIEW ─────────────── -->
-    <WebView
-        android:id="@+id/webView"
+            <FrameLayout
+                android:id="@+id/btnTabCount"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="2dp"
+                android:background="@drawable/btn_icon_bg"
+                android:clickable="true"
+                android:focusable="true"
+                tools:ignore="TouchTargetSizeCheck">
+
+                <TextView
+                    android:id="@+id/tvTabCount"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/tab_count_bg"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="#ffffff"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+
+            <ImageButton
+                android:id="@+id/btnMenu"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="2dp"
+                android:background="@drawable/btn_icon_bg"
+                android:contentDescription="Menu"
+                android:padding="4dp"
+                android:scaleType="center"
+                android:src="@drawable/ic_more_vert"
+                tools:ignore="TouchTargetSizeCheck" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:max="100"
+            android:progress="0"
+            android:visibility="gone"
+            android:progressDrawable="@drawable/progress_drawable" />
+    </LinearLayout>
+
+    <!-- SwipeRefreshLayout (Pull-to-Refresh) -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/bg_primary"
-        app:layout_constraintTop_toBottomOf="@id/progressBar"
+        app:layout_constraintTop_toBottomOf="@id/headerContainer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingClass">
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_primary" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

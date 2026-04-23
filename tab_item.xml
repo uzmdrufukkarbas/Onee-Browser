@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content" android:layout_height="match_parent" android:orientation="horizontal" android:gravity="center_vertical" android:background="@drawable/tab_item_bg" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:paddingStart="10dp" android:paddingEnd="6dp" android:minWidth="100dp" android:maxWidth="160dp">
+    <TextView android:id="@+id/tvTabTitle" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textColor="#cccccc" android:textSize="12sp" android:ellipsize="end" android:maxLines="1" android:text="@string/yeni_sekme"/>
+
+    <ImageButton
+        android:id="@+id/btnCloseTab"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:alpha="0.6"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/kapat"
+        android:padding="3dp"
+        android:src="@drawable/ic_close"
+        tools:ignore="TouchTargetSizeCheck" />
+</LinearLayout>
